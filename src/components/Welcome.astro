@@ -1,0 +1,48 @@
+---
+ import Logo from "../../public/Logo.jpg";
+ import { Image } from "astro:assets";
+
+
+---
+
+<div class="welcome">
+<meta http-equiv="refresh" content="5;url=/home">
+<Image src={Logo} alt="Logo" class="animation" transition:name="hero-img"/>
+</div>
+
+<style>
+	.welcome img {
+		position: absolute;
+		z-index: 1000;
+		width: 100%;
+		height: auto;
+		overflow : hidden;
+	}
+	.welcome {
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-color: #000;
+		background-position: center;
+		height: 100dvh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.animation {
+		animation: fadeIn 4s ease-in-out forwards;
+		width: 300px;
+		height: 300px;
+	}
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+</style>

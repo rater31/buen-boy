@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+const response = await fetch(
+  "https://opensheet.elk.sh/16Tuy39NSD_IbmLPSkecDI3qcwc4iX0ZgMuhWmXWz-9k/1"
+);
+const data = await response.json();
+const url= "https://drive.google.com/uc?export=view&id=1362aq-Lgssh9J3kO2J6WFOu1_mb2XUf_";
+
+---
+
+<section>
+    <h2>Sin filtro</h2>
+    <ul>
+        {data.filter((Oferta) => Oferta.Oferta === "no").map((Oferta) => (
+        <li >
+            <strong>{Oferta.Nombre}</strong>
+        </li>
+        <li>
+            <span>{Oferta.Precio}</span>
+        </li>
+        <li>
+            <span>Talles de Hombres:</span>
+            <span>{Oferta.TallesMen}</span>
+        </li>
+         <li>
+                    <span>Talles de Mujeres:</span>
+                    <span>{Oferta.TallesWoman}</span>
+                </li>
+        <img src={`https://drive.google.com/uc?export=view&id=1362aq-Lgssh9J3kO2J6WFOu1_mb2XUf_`} alt="" srcset="" width="300" height="200">
+        <Image src={url} alt=" algo" width="300" height="200" />
+        ))}
+    </ul>
+    <div>
+    </div>
+
+    <div>
+        <h2>Intento de filtrado</h2>
+        <ul>
+            {data.filter((Oferta) => Oferta.Oferta === "si").map((Oferta) => (
+                <li>
+                    <strong>{Oferta.Nombre}</strong>
+                    <span class="oferta">{Oferta.Precio}</span>
+                </li>
+                <li>
+                    <span>{Oferta.PrecioOferta}</span>
+                </li>
+                <li>
+                    <span>Talles de Hombres:</span>
+                    <span>{Oferta.TallesMen}</span>
+                </li>
+                <li>
+                    <span>Talles de Mujeres:</span>
+                    <span>{Oferta.TallesWoman}</span>
+                </li>
+            ))}
+    </div>
+</section>
+
+<style>
+    .oferta{
+        text-decoration: line-through;
+    }
+</style>

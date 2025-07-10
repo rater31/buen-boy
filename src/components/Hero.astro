@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../../public/Logo.jpg";
+
+---
+<div class="container">
+
+    <Image 
+        transition:name="hero-img"
+        src={Logo} 
+        alt="Hero Image" 
+        class="hero-image"
+    />
+    <ul class="nav-links">
+        <li style="color: #FFAF01;">Home</li>
+        <li>Categoría</li>
+        <li>Oferta</li>
+        <li>Popular</li>
+    </ul>
+
+</div>
+
+<style>
+    .container{
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        background-color: black;
+        padding: 5px;
+    }
+    .nav-links {
+        font-size: 13px;
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        color: white;
+        animation: links 1s ease-in-out forwards;
+
+    }
+    .hero-image{
+        width: 100px;
+        height: 80px;
+        padding: 5px 10px 5px 0;
+        animation: hero-img 1s ease-in-out forwards;
+    }
+    @keyframes hero-img {
+        from{
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    @keyframes links {
+        from{
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
