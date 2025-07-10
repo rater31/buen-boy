@@ -1,0 +1,28 @@
+---
+const {nombre, url}= Astro.props;
+---
+
+
+<div class="boton">
+    <a href={url}> {nombre}</a>
+</div>
+
+
+<style>
+    a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        color: white;
+    }
+    .boton{
+        bottom:  7px ;
+        margin-left: 5px;
+        text-align: center;
+        width: 55%;
+        padding: 5px;
+        border-radius: 15px;
+        background-color: orange;
+        position: absolute;
+    }
+</style>
